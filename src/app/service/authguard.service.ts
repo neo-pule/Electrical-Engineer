@@ -23,11 +23,7 @@ export class AuthGuardService {
 
 
   async signIn(email: string, password: string) {
-    await this.afAuth.auth.signInWithEmailAndPassword(email, password).then((success) => {
-      console.log(success);
-    }).catch((err) => {
-      console.log(" error while " + err);
-    })
+    await this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
 
