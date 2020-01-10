@@ -47,6 +47,8 @@ import {
   MatTooltipModule,
   MatGridListModule,
 } from '@angular/material';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -63,7 +65,8 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-LoginComponent
+LoginComponent,
+MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +112,8 @@ LoginComponent
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
