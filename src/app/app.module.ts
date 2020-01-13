@@ -51,6 +51,8 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { ListServiceComponent } from './components/list-service/list-service.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -70,7 +72,9 @@ const firebaseConfig = {
 LoginComponent,
 MainNavComponent,
 AddWorkerComponent,
-AddServiceComponent
+AddServiceComponent,
+ListServiceComponent,
+ListUserComponent
   ],
   imports: [
     BrowserModule,

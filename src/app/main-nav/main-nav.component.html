@@ -1,20 +1,20 @@
-<mat-sidenav-container class="sidenav-container">
+<!--<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">
+      <a mat-list-item href="add-worker">
         <i class="material-icons">dashboard</i>
         <span style="margin-left: 20px;">Home</span>
       </a>
-      <a mat-list-item href="#">
+      <a mat-list-item (click)="push()">
         <i class="material-icons">dashboard</i>
         <span style="margin-left: 20px;">Worker</span>
       </a>
 
-      <a mat-list-item href="#">
+      <a mat-list-item >
         <i class="material-icons">dashboard</i>
         <span style="margin-left: 20px;">invoice</span>
       </a>
@@ -29,7 +29,7 @@
         <span style="margin-left: 20px;">payment</span>
       </a>
       
-      <!-- <a mat-list-item [routerLink]="['/register']" routerLinkActive="active">
+       <a mat-list-item [routerLink]="['/register']" routerLinkActive="active">
         <i class="material-icons">dashboard</i>
         <span style="margin-left: 20px;">Home</span>
     </a>
@@ -48,7 +48,7 @@
     <a mat-list-item [routerLink]="['/register']" routerLinkActive="active">
         <i class="material-icons">dashboard</i>
         <span style="margin-left: 20px;">payment</span>
-    </a> -->
+    </a> --
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -63,6 +63,49 @@
       </button>
       <span>graduate-exit-program</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- Add Content Here -
+    Main content
+  <button (click)="push()">Try</button>
+    
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/listUser']">
+          <i class="material-icons">dashboard</i>
+          <span style="margin-left: 20px;">invoice</span>
+        </a>
+  
+        <a mat-list-item [routerLink]="['/listService']">
+          <i class="material-icons">dashboard</i>
+          <span style="margin-left: 20px;">request</span>
+        </a>
+  
+        <a mat-list-item [routerLink]="['/addWorker']">
+          <i class="material-icons">dashboard</i>
+          <span style="margin-left: 20px;">payment</span>
+        </a>
+        
+         <a mat-list-item [routerLink]="['/addService']" routerLinkActive="active">
+          <i class="material-icons">dashboard</i>
+          <span style="margin-left: 20px;">Home</span>
+      </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
