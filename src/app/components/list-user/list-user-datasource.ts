@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { AngularFirestoreDocument, AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 
 // TODO: Replace this with your own data model type
 export interface ListServiceItem {
@@ -29,9 +30,20 @@ export class ListServiceDataSource extends DataSource<ListServiceItem> {
     data: ListServiceItem[] = dataSource;
     paginator: MatPaginator;
     sort: MatSort;
-  
-    constructor() {
+    array;
+    constructor(private afs: AngularFirestore) {
+      
       super();
+      this.afs.collection('user/').snapshotChanges().subscribe((data: any) => {
+        this.array = data.map(e => {
+          return {
+            key: e.payload.doc.id,
+            ...e.payload.doc.data()
+          };
+        });
+  
+        console.log(this.array);
+      });
     }
     // connect(collectionViewer: import("@angular/cdk/collections").CollectionViewer): Observable<ListServiceItem[] | readonly ListServiceItem[]> {
     //     throw new Error("Method not implemented.");
