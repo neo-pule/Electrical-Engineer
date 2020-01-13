@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
     this.HomeService.getUsers().then((data) => {
       console.log(data);
       this.User_Array = data;
-      console.log(this.User_Array[0]);
     })
   }
 
