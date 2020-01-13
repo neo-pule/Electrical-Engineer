@@ -53,6 +53,7 @@ import { AddWorkerComponent } from './components/add-worker/add-worker.component
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { ListServiceComponent } from './components/list-service/list-service.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { RequestComponent } from './components/request/request.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -75,7 +76,8 @@ MainNavComponent,
 AddWorkerComponent,
 AddServiceComponent,
 ListServiceComponent,
-ListUserComponent
+ListUserComponent,
+RequestComponent
   ],
   imports: [
     BrowserModule,

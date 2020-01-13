@@ -19,8 +19,17 @@ export class SccSkillService {
     this.writePost = this.dog.collection<any>('workers');
     this.writePost.add(worker).then(() =>{
 
-      console.log("added successful");
+      console.log("worker added successful");
     });
+}
+
+addService(worker) {
+
+  this.writePost = this.dog.collection<any>('services');
+  this.writePost.add(worker).then(() =>{
+
+    console.log("service added successful");
+  });
 }
 
 }

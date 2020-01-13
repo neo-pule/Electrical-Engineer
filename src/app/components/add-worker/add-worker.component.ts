@@ -9,14 +9,31 @@ import { Router } from '@angular/router'
 })
 export class AddWorkerComponent implements OnInit {
 item;
-  constructor(private route : Router,private skillService : SccSkillService) {}
+worker = {
+  name : "",
+  surname : "",
+  gender : "",
+  workerid : "",
+  specialty : "",
+  phoneNo : 0,
+  bio :  ""
+}
+temp;
+  constructor(private route : Router,private skillService : SccSkillService) { }
+
+  try(){
+    console.log(this.worker);
+    console.log(this.temp);
+  }
+
 
 
   push(){
     this.route.navigateByUrl('addService')
   }
+
   submit(){
-    this.skillService.addWorker(this.item);
+    this.skillService.addWorker(this.worker);
     // this.route.navigateByUrl("/home");
   }
 

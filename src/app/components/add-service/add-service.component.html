@@ -1,17 +1,21 @@
 <p>add-service works!</p>
 <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Input">
+      <input matInput placeholder="Name" [(ngModel)]="service.name">
     </mat-form-field>
-  
+  <br>
     <mat-form-field>
-      <textarea matInput placeholder="Textarea"></textarea>
+      <input matInput placeholder="description" [(ngModel)]="service.description"> 
     </mat-form-field>
-  
+    <br>
     <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
+      <input matInput placeholder="cost" [(ngModel)]="service.cost">
     </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="cost" [(ngModel)]="temp">
+    </mat-form-field>
+    <br>
+    <button (click)="submit()"> Push</button>
   </div>
   
