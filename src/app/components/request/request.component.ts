@@ -26,6 +26,7 @@ export class RequestComponent implements OnInit {
   @ViewChild(MatPaginator,  {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
+  arrayOfObjects: any [] = [];
   dataSourc : ListServiceItem[] = [
     {key : "1",refNo: "1", stamp: '2020-01-19'},
     {key : "2",refNo: "2", stamp: '2020-01-19'}
@@ -44,17 +45,30 @@ listArr;
   ngOnInit() {
     this.afs.collection('request/').snapshotChanges().subscribe((aa : any) => {
     this.listArr = aa.map(e => {
+      const data = e.payload.doc.data() as any;
+      const  id =  e.payload.doc.id;
       return {
-        key: e.payload.doc.id,
-        ...e.payload.doc.data()
-      };
+     id,... data
+      }
     });
+    //   return {
+    //     key: e.payload.doc.id,
+    //     info: e.payload.doc.data()
+    //   };
+    // });
       this.array = aa;
       // this.dataSource =  this.listArr;
-      
-      console.log(this.listArr)
+      for (let listArr of this.listArr) {
+        
+        if (listArr.service) {
+          
+          this.arrayOfObjects.push(listArr)
+       
+        }
+      }
+      console.log(this.arrayOfObjects)
       console.log(this.array)
-      this.dataSource = new MatTableDataSource(this.listArr)
+      this.dataSource = new MatTableDataSource(this.arrayOfObjects)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })

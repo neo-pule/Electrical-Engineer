@@ -58,6 +58,9 @@ import { RequestComponent } from './components/request/request.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { ServiceComponent } from './components/service/service.component';
 import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { RequestMComponent } from './components/request-m/request-m.component';
+import { RequestAppComponent } from './components/request-app/request-app.component';
+import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -84,7 +87,10 @@ ListUserComponent,
 RequestComponent,
 InvoiceComponent,
 ServiceComponent,
-RequestDetailsComponent
+RequestDetailsComponent,
+RequestMComponent,
+RequestAppComponent,
+RequestMDetailComponent
   ],
   imports: [
     BrowserModule,

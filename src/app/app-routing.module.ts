@@ -11,6 +11,9 @@ import { ServiceComponent } from './components/service/service.component';
 import { RequestComponent } from './components/request/request.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { RequestMComponent } from './components/request-m/request-m.component';
+import { RequestAppComponent } from './components/request-app/request-app.component';
+import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 
 const routes: Routes = [
   {path : 'main-nav', component : MainNavComponent , children : [
@@ -21,7 +24,10 @@ const routes: Routes = [
     {path : 'listService', component : ListServiceComponent},
     {path : 'invoice', component : InvoiceComponent},
     {path : 'service', component : ServiceComponent},
+    {path : 'request-app', component : RequestAppComponent},
     {path : 'request', component : RequestComponent},
+    {path : 'request-m', component : RequestMComponent},
+    {path : 'request-m-detail', component : RequestMDetailComponent},
     {path : 'request-details', component : RequestDetailsComponent},
   ]},
   
