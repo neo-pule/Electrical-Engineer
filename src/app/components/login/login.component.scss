@@ -1,95 +1,58 @@
-body {
-    // background: url("/assets/deepeg.png") no-repeat center;
-    margin: 0;
-    height: 100vh;
-    display: grid;
-    justify-items: space-around;
+#login {
+    background:lightgray;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
     align-items: center;
-    display: flex;
-    // font-family: monospace;
-}
-
-.container {
-    width: 70%;
-    height: 100vh;
-    background: url("/assets/deepeg.png") no-repeat center;
-    background: linear-gradient(brown, rgb(91, 114, 122));
-    .inner {
-        background: white;
-        padding: 1em;
-        border-radius: 0px;
-        width: 100%;
-        height: 100%;
-        clip-path: circle(60.0% at 91% 50%);
-        transition: clip-path .5s ease-in-out;
-        overflow: hidden;
-        h1 {
-            color: rgb(0, 5, 7);
-            position: absolute;
-            left: 50%;
-            right: 50%;
-            top: 40%;
-        }
-    }
-}
-
-.form {
-    position: absolute;
-    left: 45%;
-    right: 35%;
-    top: 50%;
-    bottom: 50%;
-    display: flex;
-    flex-direction: column;
-    mat-card {
-        align-self: auto;
-    }
-    .form input {
-        width: 100%;
-        height: 100%;
-        color: black;
-        padding-top: 20px;
-    }
-}
-
-button {
+    justify-content: center;
+  }
+  #card {
+    background: white;
+    padding: 40px;
+    width: 500px;
+    border-radius: 10px;
+    img{
+      height: 30vh;
+    width: auto;
+    margin: auto;
+    display: block;
+  }
+  }
+  #card #title {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  #card .subtitle {
+    color: #A0A0A0;
+    margin-bottom: 40px;
+  }
+  #card input {
     width: 100%;
-    background: linear-gradient(brown, rgb(91, 114, 122));
-}
-
-.icons {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    right: 50%;
-}
-
-.icon1 {
-    position: absolute;
-    bottom: 20%;
-    left: 54%;
-    right: 50%;
-}
-
-.icon2 {
-    position: absolute;
-    bottom: 20%;
-    left: 58%;
-    right: 50%;
-}
-
-.hide {
-    position: absolute;
-    left: 50px;
-}
-
-.full-width {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    background: #EEEEEE;
+    border-style: none;
+    border-radius: 5px;
+    height: 30px;
+  }
+  #card .headings {
+    color: gray;
+  }
+  #card button {
+    background: red;
+    color: white;
     width: 100%;
-    /* color: white; */
-}
-
-.shipping-card {
-    min-width: 150px;
-    margin: 35% auto;
-    margin-left: 55%;
-}
+    height: 50px;
+    border-radius: 5px;
+  }
+  #card .error {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+  }
+  #card .failed {
+    color: red;
+  }

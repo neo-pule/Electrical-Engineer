@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist\\graduate-exit-program",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+<!-- <table mat-table [dataSource] = "dataSourc" > 
+    <ng-container matColumnDef = "name">
+        <th mat-header-cell *matHeaderCellDef>Service</th>
+        <td mat-cell *matCellDef = "let element"> {{element.name}} </td>
+        
+     </ng-container>
+     <ng-container matColumnDef = "cost">
+        <th mat-header-cell *matHeaderCellDef>Cost</th>
+        <td mat-cell *matCellDef = "let element"> {{element.cost}} </td>
+        
+     </ng-container>
+     <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+  
+         <mat-header-cell *matHeaderCellDef></mat-header-cell> 
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="openDialog(row)" matTooltip="Update row" matTooltipPosition="before" matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="try(row)" matTooltip="Delete row" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+    </ng-container>
+
+  </table> -->
+  <mat-accordion>
+   <mat-expansion-panel>
+     <mat-expansion-panel-header>
+       <mat-panel-title>
+         Add Service
+       </mat-panel-title>
+       <mat-panel-description>
+         Add a new service
+       </mat-panel-description>
+     </mat-expansion-panel-header>
+ 
+     <mat-form-field>
+       <input matInput placeholder="Service name">
+     </mat-form-field>
+ <br>
+     <!-- <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    
+    <h4>Basic native select</h4>
+    <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <select matNativeControl required>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </mat-form-field>
+    <br>
+     <mat-form-field>
+       <input matInput placeholder="Service Description">
+     </mat-form-field>
+     <br>
+     <mat-form-field>
+      <input matInput placeholder="Service Cost">
+    </mat-form-field>
+    <br>
+    
+      <div class="button">
+         <input id="file-input1" type="file" accept="image/*" (change)="uploadProfilePic(file.files)" />
+         <img src="imgUrl" alt="avatar" height="400" width="400" *ngIf="imgUrl">
+      </div>
+   
+   </mat-expansion-panel>
+
+ </mat-accordion>
+
+  <mat-icon aria-hidden="false" aria-label="Example home icon">insert</mat-icon>
+  <table mat-table [dataSource] = "dataSourc" > 
+
+    <ng-container matColumnDef = "name">
+      <th mat-header-cell *matHeaderCellDef>Service</th>
+      <td mat-cell *matCellDef = "let element"> {{element.name}} </td>
+      
+   </ng-container>
+   <ng-container matColumnDef = "description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef = "let element"> {{element.description}} </td>
+   </ng-container>
+    <ng-container matColumnDef = "cost">
+      <th mat-header-cell *matHeaderCellDef>cost</th>
+      <td mat-cell *matCellDef = "let element"> {{element.cost}} </td>
+   </ng-container>
+   <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> </th>
+
+    <!-- <mat-header-cell *matHeaderCellDef></mat-header-cell> -->
+    <td mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="update(row)" matTooltip="Update row" matTooltipPosition="before" matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="delete(row)" matTooltip="Delete row" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
+    </td>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef = "displayedColumns"></tr>
+    <tr mat-row *matRowDef = "let row; columns: displayedColumns;"></tr>
+
+    
+    
+ </table>
+<!--   
+<mat-list>
+    <h3 matSubheader>Folders</h3>
+
+    <mat-list-item *ngFor="let folder of arrayService">
+       <mat-icon matListIcon>folder</mat-icon>
+       <h4 matLine>{{folder.name}}</h4>
+       <p matLine class="demo-2"> {{folder.cost}} </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <h3 matSubheader>Notes</h3>
+    <mat-list-item *ngFor="let note of notes">
+       <mat-icon matListIcon>note</mat-icon>
+       <h4 matLine>{{note.name}}</h4>
+       <p matLine class="demo-2"> {{note.updated}} </p>
+    </mat-list-item>
+ </mat-list> -->

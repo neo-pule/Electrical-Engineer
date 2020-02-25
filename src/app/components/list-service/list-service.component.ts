@@ -5,6 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { ListServiceDataSource, ListServiceItem } from '../list-service/list-service-datasource';
 import { AngularFirestoreDocument, AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import {MatTableDataSource} from '@angular/material'
+import { Router } from '@angular/router';
 
 export interface Food {
    calories: number;
@@ -39,7 +40,7 @@ export class ListServiceComponent implements OnInit {
   array;
  displayedColumns: string[] = ['name', 'calories', 'fat', 'carbs','protein'];
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore,private route : Router) { }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -47,6 +48,14 @@ export class ListServiceComponent implements OnInit {
     this.data.filter = filterValue;
   }
 
+  run(){
+    console.log("Electrical service")
+    this.route.navigateByUrl('service')
+  }
+  run1(){
+    console.log("ICT service")
+    this.route.navigateByUrl('service')
+  }
   ngOnInit() {
 
     this.afs.collection('Graduate/').snapshotChanges().subscribe((data: any) => {

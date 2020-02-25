@@ -1,10 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Inject } from '@angular/core';
 import {Sort} from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AngularFirestoreDocument, AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import {MatTableDataSource} from '@angular/material'
+import {MatTableDataSource} from '@angular/material';
+import { SccSkillService } from '../../service/scc-skill.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AddServiceComponent } from '../add-service/add-service.component';
+import {Router, ActivatedRoute} from '@angular/router';
 export interface Food {
    calories: number;
    carbs: number;
@@ -12,7 +16,10 @@ export interface Food {
    name: string;
    protein: number;
 }
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
@@ -30,14 +37,41 @@ export class ListUserComponent implements OnInit {
     {name: 'Gingerbreads', calories: 356, fat: 16, carbs: 49, protein: 4},
  ];
  //displayedColumns: string[] = ['name', 'calories', 'fat', 'carbs','protein'];
-  displayedColumns: string[] = ['name', 'surname', 'role', 'location','phone'];
+  displayedColumns: string[] = ['name', 'surname', 'role', 'location','phone','actions'];
  array;
  dataSourc : any;
+ animal: string;
+ name: string;
 
-
+ obj =" hello bamby";
  
-  constructor(private afs: AngularFirestore) { }
+  constructor(private route:Router, private nav : ActivatedRoute,private afs: AngularFirestore,private skillService : SccSkillService,public dialog: MatDialog) { }
 
+  openDialog(arr): void {
+    const dialogRef = this.dialog.open(AddServiceComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+    console.log(arr);
+    this.obj = arr;
+    console.log(this.obj)
+    this.route.navigate(['/'], {queryParams: {arr : JSON.stringify(arr)}});
+  }
+
+
+  try(arr){
+    // this.skillService.updateService(arr);
+    console.log(arr);
+    // this.obj = arr;
+    console.log(this.obj)
+    this.route.navigate(['/addService'], {queryParams: {obj : this.obj}});
+  }
+  
   ngOnInit() {
 
     this.afs.collection('user/').snapshotChanges().subscribe((data: any) => {

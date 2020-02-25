@@ -1,4 +1,4 @@
-<div class="example-header">
+<!-- <div class="example-header">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
@@ -34,4 +34,23 @@
  <mat-paginator #paginator [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5,10,15,25]">
 </mat-paginator>
 
-</div>
+</div> -->
+
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+   <mat-grid-tile style="background: url('../../assets/img-03.jpg')no-repeat;;" (click)="run()">1</mat-grid-tile>
+   <mat-grid-tile style="background: url('../../assets/attachment_53219746.png') no-repeat;" (click)="run1()">2</mat-grid-tile>
+   
+ </mat-grid-list> -->
+ <mat-tab-group dynamicHeight>
+   <mat-tab label="Short tab">
+     <div class="example-small-box mat-elevation-z4">
+      <app-service></app-service>
+     </div>
+   </mat-tab>
+   <mat-tab label="Long tab">
+     <div class="example-large-box mat-elevation-z4">
+       Large content
+     </div>
+   </mat-tab>
+ </mat-tab-group>
+ 

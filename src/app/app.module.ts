@@ -11,6 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms'
 import * as firebase from 'firebase';
+
 import {HttpClientModule} from '@angular/common/http'
 import {
   MatAutocompleteModule,
@@ -54,6 +55,9 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 import { ListServiceComponent } from './components/list-service/list-service.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { RequestComponent } from './components/request/request.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ServiceComponent } from './components/service/service.component';
+import { RequestDetailsComponent } from './components/request-details/request-details.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -77,7 +81,10 @@ AddWorkerComponent,
 AddServiceComponent,
 ListServiceComponent,
 ListUserComponent,
-RequestComponent
+RequestComponent,
+InvoiceComponent,
+ServiceComponent,
+RequestDetailsComponent
   ],
   imports: [
     BrowserModule,

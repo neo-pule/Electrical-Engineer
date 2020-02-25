@@ -1,3 +1,15 @@
-table {
-    width: 100%;
- }
+// table {
+//     width: 100%;
+//  }
+mat-grid-tile {
+    background: lightblue;
+    
+  }
+  mat-grid-list {
+    width: 90%;
+    // position: relative;
+    margin-top: 40px;
+    margin-left: 90px;
+    // align-content: right;
+    // left: 80px;
+  }

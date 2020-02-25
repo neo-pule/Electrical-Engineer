@@ -1,47 +1,21 @@
-<body class="container">
-    <div class="inner">
-        <img src="assets/deepeg.png" style="position: absolute;top: 3%;left: 45%; width:15%;">
-        <form [formGroup]="loginForm" novalidate>
-            <mat-card class="shipping-card mat-elevation-z24">
-                <mat-card-header>
-                    <mat-card-title>Login Form</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="row">
-                        <div class="col">
-                            <mat-form-field class="full-width">
-                                <input matInput placeholder="Email" formControlName="email">
-                                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
-                                    Email is <strong>required</strong>
-                                </mat-error>
-                                <mat-error *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
-                                    Email address is <strong>  invalid</strong>
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <mat-form-field class="full-width">
-                                <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
-                                <img src="https://img.icons8.com/ios-glyphs/16/000000/visible.png" mat-icon-eye matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-
-                                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
-                                    Password is <strong>required</strong>
-                                </mat-error>
-                                <mat-error *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
-                                    Password <strong> Minimum 6 characters</strong>
-                                </mat-error>
-                                <mat-error *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
-                                    Password <strong>Maximum 12 characters</strong>
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </mat-card-content>
-
-                <button mat-raised-button class="bt" type="submit" (click)="login()" class="md-button" [disabled]="!loginForm.valid">Login</button>
-            </mat-card>
-        </form>
-    </div>
-</body>
+<div class="outer">
+    <div class="middle">
+      <div id="login">
+        <div id="card">
+          <img src="../../../assets/scc (1).png" style="max-width: 200px; min-width: 20%; max-height: 120px;">
+          <h1 class="mat-display-1" style="margin-bottom: 10px; margin-top: 10px;">SCC Dashboard</h1>
+          <p class="mat-body-1 subtitle">Admin Portal</p>
+          <form [formGroup]="form">
+            <div>
+              <span class="mat-body-1 headings">Email</span>
+              <input type="email" formControlName="email" [ngClass]="{'error': !valid('email')}" />
+            </div>
+            <div>
+              <span class="mat-body-1 headings">Password</span>
+              <input type="password" formControlName="password" [ngClass]="{'error': !valid('password')}" />
+            </div>
+            <button  (click)="submit()">Login</button>
+            <p class="failed mat-body-1">{{error}}</p>
+          </form>
+        </div>
+      </div>

@@ -6,13 +6,28 @@ import { AddWorkerComponent } from './components/add-worker/add-worker.component
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { ListServiceComponent } from './components/list-service/list-service.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ServiceComponent } from './components/service/service.component';
+import { RequestComponent } from './components/request/request.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { RequestDetailsComponent } from './components/request-details/request-details.component';
+
 const routes: Routes = [
-  {path : '', component:HomeComponent},
+  {path : 'main-nav', component : MainNavComponent , children : [
+    {path : 'home', component:HomeComponent},
+    {path : 'addWorker', component:AddWorkerComponent},
+    {path : 'addService', component:AddServiceComponent},
+    {path : 'listUser', component : ListUserComponent},
+    {path : 'listService', component : ListServiceComponent},
+    {path : 'invoice', component : InvoiceComponent},
+    {path : 'service', component : ServiceComponent},
+    {path : 'request', component : RequestComponent},
+    {path : 'request-details', component : RequestDetailsComponent},
+  ]},
+  
  {path : 'login', component:LoginComponent},
- {path : 'addWorker', component:AddWorkerComponent},
- {path : 'addService', component:AddServiceComponent},
- {path : 'listUser', component : ListUserComponent},
- {path : 'listService', component : ListServiceComponent}
+
+
 ];
 
 @NgModule({
