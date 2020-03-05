@@ -12,6 +12,13 @@
 //   top: 0;
 //   z-index: 1;
 // }
+.one {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: inline;
+}
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -89,7 +96,8 @@ mat-sidenav {
     /* optional */
 }
 
-.image {
+.bg {
     position: absolute;
     top: 5%;
+    left: 20%;
 }

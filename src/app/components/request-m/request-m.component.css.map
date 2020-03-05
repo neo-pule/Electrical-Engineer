@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "request-m.component.scss"
+    ],
+    "names": [],
+    "file": "request-m.component.css"
+}

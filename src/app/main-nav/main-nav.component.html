@@ -1,47 +1,29 @@
 <mat-sidenav-container class="example-container">
-    <mat-toolbar color="primary">Header</mat-toolbar>
-
-
+    <mat-toolbar class="example-header">Header</mat-toolbar>
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (closed)="events.push('close!')" class="list">
-        <div class="image">
-            <img src="/assets/scc (1).png" style="position: absolute;top:0px;width:150px;height:150px;left: 15px;">
-        </div>
+        <div class="bg"><img src="/assets/scc (1).png" style="width: 70%;"></div>
+        <div class="one">
+            <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/output-graph']">Home</button>
+            <br>
+            <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/listService']">Users</button>
 
-        <div class="links">
-            <a mat-list-item [routerLink]="['/main-nav/home']" class="home">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" color="light">home</mat-icon>
-                <span class="aligned-with-icon">Home</span>
-            </a>
             <br>
-            <a mat-list-item [routerLink]="['/main-nav/addWorker']" class="people">
-                <mat-icon aria-hidden="false" aria-label="Example  people icon" color="light"> people</mat-icon>
-                <span class="aligned-with-icon">Worker</span>
-            </a>
+            <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/invoice']">Invoice</button>
             <br>
-            <a mat-list-item [routerLink]="['/main-nav/invoice']" class="receipt">
-                <i class="material-icons">receipt</i>
-                <span class="aligned-with-icon">Invoice</span>
-            </a>
-            <br>
-            <a mat-list-item [routerLink]="['/main-nav/request-app']" class="view">
-                <i class="material-icons">view_list</i>
-                <span class="aligned-with-icon">Request</span>
-            </a>
-            <br>
-            <a mat-list-item [routerLink]="['/main-nav/service']" class="payment">
-                <i class="material-icons">payment</i>
-                <span class="aligned-with-icon">Add Service</span>
-            </a>
-        </div>
 
+            <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/request-app']">Request</button>
+        </div>
+        <!--             
+              <a mat-list-item [routerLink]="['/main-nav/service']">
+                <i class="material-icons">dashboard</i>
+                <span style="margin-left: 20px;">Payment</span>
+              </a> -->
     </mat-sidenav>
 
     <mat-sidenav-content>
-
-        <button mat-button (click)="sidenav.toggle()">
-         
-          <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
-        </button>
+        <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
+        <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="sidenav.toggle()">menu</mat-icon>
+        <!-- <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

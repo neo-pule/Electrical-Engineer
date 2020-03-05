@@ -11,7 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms'
 import * as firebase from 'firebase';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http'
 import {
   MatAutocompleteModule,
@@ -61,6 +61,7 @@ import { RequestDetailsComponent } from './components/request-details/request-de
 import { RequestMComponent } from './components/request-m/request-m.component';
 import { RequestAppComponent } from './components/request-app/request-app.component';
 import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
+import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -90,13 +91,15 @@ ServiceComponent,
 RequestDetailsComponent,
 RequestMComponent,
 RequestAppComponent,
-RequestMDetailComponent
+RequestMDetailComponent,
+OutputGraphComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     // FormGroup,
     AngularFireModule.initializeApp(firebaseConfig),

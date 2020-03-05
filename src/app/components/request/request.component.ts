@@ -43,6 +43,9 @@ listArr;
     this.route.navigate(['main-nav/request-details/'], {queryParams : {key: i}});
   }
   ngOnInit() {
+
+  
+
     this.afs.collection('request/').snapshotChanges().subscribe((aa : any) => {
     this.listArr = aa.map(e => {
       const data = e.payload.doc.data() as any;
