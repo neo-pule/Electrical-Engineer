@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SccSkillService } from 'src/app/service/scc-skill.service';
+import { StoreInvoiceService } from 'src/app/service/store-invoice.service';
 
 @Component({
   selector: 'app-request-m-detail',
@@ -10,15 +11,16 @@ import { SccSkillService } from 'src/app/service/scc-skill.service';
 export class RequestMDetailComponent implements OnInit {
 key;
 array;
-
+flag : boolean = true;
 arrayOfeleObj: any [] = [];
 arrayOfictObj: any [] = [];
-  constructor(private addr: ActivatedRoute,private sccskills :SccSkillService) { }
+  constructor( private _invoiceService: StoreInvoiceService,private addr: ActivatedRoute,private sccskills :SccSkillService,private route : Router) { }
 
 
   details(){
     this.sccskills.viewDetailRequest(this.key).subscribe((data) =>{
       this.array =data;
+      this._invoiceService.storeUserObj(data);
       console.log(this.array)
       this.arrayOfictObj= this.array.ictObj;
       
@@ -36,6 +38,10 @@ arrayOfictObj: any [] = [];
 
     })
     // console.log(this.arrayOfObjects)
+  }
+  next(){
+    this._invoiceService.storeInvoiceM(this.arrayOfictObj,this.arrayOfeleObj);
+    this.route.navigate(['main-nav/invoice'],{queryParams : {flag :this.flag}});
   }
 
   ngOnInit() {

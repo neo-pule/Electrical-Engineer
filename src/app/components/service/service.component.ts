@@ -3,6 +3,8 @@ import { SccSkillService } from 'src/app/service/scc-skill.service';
 import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { finalize } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
 export interface Food {
   calories: number;
   carbs: number;
@@ -18,7 +20,7 @@ export interface Food {
 export class ServiceComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-
+  imgURL ;
   arrayService;
   arrayICTService;
   array;
@@ -31,7 +33,11 @@ export class ServiceComponent implements OnInit {
   ];
   // displayedColumns: string[] = ['name', 'calories', 'fat', 'carbs','protein'];
   displayedColumns: string[] = ['name', 'description', 'cost', 'actions'];
-  constructor(private skill: SccSkillService) { }
+  uploadPercent : any;
+  storag: any;
+  mainImage: any;
+  downloadU: any;
+  constructor(private skill: SccSkillService, private storage: AngularFireStorage,) { }
   dataSourc: any;
   message;
   imgUrl;
@@ -42,6 +48,47 @@ export class ServiceComponent implements OnInit {
     cost: 0,
     image: ''
   };
+
+  uploadFile(files) {
+    if (files.length === 0)
+    return;
+
+  var mimeType = files[0].type;
+  if (mimeType.match(/image\/*/) == null) {
+    // this.message = "Only images are supported.";
+    return;
+  }
+
+  const file = files[0];
+  console.log(file)
+  const fileName = files[0].name;
+  var reader = new FileReader();
+  // this.imagePath = files;
+  reader.readAsDataURL(files[0]);
+  console.log(reader)
+  reader.onload = (_event) => {
+    this.imgURL = reader.result;
+    console.log(this.imgURL)
+    console.log(reader.result)
+  }
+  console.log(this.imgURL)
+    // const file = event.target.files[0];
+    const filePath = 'pics/PIC' + Math.random().toString(36).substring(2);
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    // observe percentage changes
+    this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadU = fileRef.getDownloadURL().subscribe(url => {
+          console.log(url);
+          this.mainImage = url
+          this.uploadPercent = null;
+        });
+      })
+    ).subscribe();
+  }
+
   uploadProfilePic(files) {
     console.log(files);
 
@@ -92,7 +139,7 @@ export class ServiceComponent implements OnInit {
     //   });
     // })
 
-    this.skill.viewService().subscribe((err) => {
+    this.skill.viewServiceElectrical().subscribe((err) => {
       this.arrayService = err;
       console.log(this.arrayService)
       console.log(this.arrayService)

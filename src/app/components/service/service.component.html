@@ -24,51 +24,39 @@
    <mat-expansion-panel>
      <mat-expansion-panel-header>
        <mat-panel-title>
-         Add Service
+         Add Electrical Service
        </mat-panel-title>
        <mat-panel-description>
-         Add a new service
+         Add a new Electrical service
        </mat-panel-description>
      </mat-expansion-panel-header>
- 
-     <mat-form-field>
-       <input matInput placeholder="Service name">
-     </mat-form-field>
- <br>
-     <!-- <mat-form-field>
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> -->
-    
-    <h4>Basic native select</h4>
-    <mat-form-field>
-      <mat-label>Cars</mat-label>
-      <select matNativeControl required>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
-    </mat-form-field>
+     <div class="one">
+      
+     <div class="button">
+      <img [src]="imgUrl" alt="avatar"  (click)="file.click()" height="400" width="400" >
+      <input #file type="file"  style="display: none;" (change)="uploadFile(file.files)" accept='image/*' />
+       <!--  <input id="file-input1" type="file" accept="image/*" (change)="uploadFile(file.files)" /> -->
+       
+    </div>
+
     <br>
+    <mat-form-field>
+     <input matInput placeholder="Service name"  [(ngModel)]="service.name">
+   </mat-form-field>
+   <br>
      <mat-form-field>
-       <input matInput placeholder="Service Description">
+       <input matInput placeholder="Service Description" [(ngModel)]="service.description">
      </mat-form-field>
      <br>
      <mat-form-field>
-      <input matInput placeholder="Service Cost">
+      <input matInput placeholder="Service Cost" type="number"  [(ngModel)]="service.cost">
     </mat-form-field>
     <br>
+    <button mat-button style="align-items: flex-end;"  (click)="test()">submit</button>
+  </div>
+
     
-      <div class="button">
-         <input id="file-input1" type="file" accept="image/*" (change)="uploadProfilePic(file.files)" />
-         <img src="imgUrl" alt="avatar" height="400" width="400" *ngIf="imgUrl">
-      </div>
-   
+     
    </mat-expansion-panel>
 
  </mat-accordion>

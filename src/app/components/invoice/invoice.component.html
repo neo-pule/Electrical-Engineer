@@ -1,3 +1,77 @@
 <p>invoice works!</p>
+
+
+  <!-- <div class="example-container"> -->
+    <!-- <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label> -->
+        
+          <div *ngIf="flag; else loggedOut">
+            <mat-list style="align-content: center;">
+                <mat-list-item *ngFor="let i of multipleRequest">{{i}}
+                    <mat-form-field style="position: relative;left: 30px;">
+                        <mat-label>Input</mat-label>
+                        <input matInput  type="number">
+                      </mat-form-field>
+                    </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item  *ngFor="let i of multipleRequest1">{{i}}  &nbsp;
+                    <mat-form-field style="position: relative;left: 30px;">
+                    <mat-label>Input</mat-label>
+                    <input matInput type="number" [(ngModel)]="costM">
+                  </mat-form-field></mat-list-item>
+              </mat-list>
+          </div>
+          
+          <div *ngIf="flag == 'false'">
+
+            <mat-list>
+                <mat-list-item>{{service}}
+                    <mat-form-field style="position: relative;left: 30px;">
+                    <mat-label>Input</mat-label>
+                    <input matInput  type="number" [(ngModel)]="costSingle">
+                  </mat-form-field></mat-list-item>
+                <mat-list-item> {{desc}}</mat-list-item>
+              </mat-list>
+            </div>
+          
+         <!-- <div class="one">
+            {{service}}
+             &nbsp;<mat-form-field >
+            <mat-label>Input</mat-label>
+            <input matInput>
+          </mat-form-field>
+             <br>
+             {{desc}}
+         </div> -->
+         <br>
+         <!-- <div class="one" *ngFor="let i of multipleRequest">
+            {{i}} &nbsp;<mat-form-field >
+                <mat-label>Input</mat-label>
+                <input matInput>
+              </mat-form-field>
+        </div>
+        <hr>
+        <br>
+        <div class="one" *ngFor="let i of multipleRequest1">
+            {{i}} &nbsp;<mat-form-field >
+                <mat-label>Input</mat-label>
+                <input matInput>
+              </mat-form-field>
+        </div> -->
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <!-- <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p> -->
+    <br>
+ 
+    <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  <!-- </div> -->
+  <button (click)="test()">aaa</button>
 <button (click)="generatePdf()">Create PDF</button>
-<button >Upload PDF</button>
+<input #file type="file"  (change)="uploadFile(file.files)" accept='application/pdf' />

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {AngularFirestoreDocument} from '@angular/fire/firestore'
+import {AngularFirestoreDocument} from '@angular/fire/firestore';
+import { StoreInvoiceService } from './store-invoice.service';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class SccSkillService {
   writePost;
   private itemDoc: AngularFirestoreDocument<Item>; // class name
 
-  constructor (private dog : AngularFirestore) {
+  constructor (private dog : AngularFirestore, private store : StoreInvoiceService) {
     
   }
 
@@ -37,6 +38,17 @@ console.log(obj);
     );
 
 }
+updateUserObj(item){
+  console.log(item)
+  let id = this.store.getKey();
+  // single field of request
+  this.itemDoc = this.dog.collection('user/').doc(item.id).collection('request').doc(id);
+  this.itemDoc.update(item).then(() =>{
+    alert(item.name +' is updated successful')
+  });
+  console.log("service updated succesful");
+}
+
 updateService(item){
   console.log(item)
   this.itemDoc = this.dog.collection('services/').doc(item.id);
@@ -46,7 +58,7 @@ updateService(item){
   console.log("service updated succesful");
 }
 
-viewService(){
+viewServiceElectrical(){
   return this.dog.collection<any>('services').snapshotChanges().pipe(
     map(actions => actions.map(a => {
       const data = a.payload.doc.data() as any;
@@ -55,7 +67,25 @@ viewService(){
     }))
   );
 }
+viewServiceICT(){
+  return this.dog.collection<any>('serviceICT').snapshotChanges().pipe(
+    map(actions => actions.map(a => {
+      const data = a.payload.doc.data() as any;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    }))
+  );
+}
 
+viewServicePlumb(){
+  return this.dog.collection<any>('servicesPlumbing').snapshotChanges().pipe(
+    map(actions => actions.map(a => {
+      const data = a.payload.doc.data() as any;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    }))
+  );
+}
 viewDetailRequest(id){
   return this.dog.collection<any>('request').doc(id).valueChanges();
 }
@@ -71,9 +101,27 @@ viewRequest(){
   // );
 }
 
-addService(worker) {
+addElecService(worker) {
 
   this.writePost = this.dog.collection<any>('services');
+  this.writePost.add(worker).then(() =>{
+
+    console.log("service added successful");
+  });
+}
+
+addIctService(worker) {
+
+  this.writePost = this.dog.collection<any>('serviceICT');
+  this.writePost.add(worker).then(() =>{
+
+    console.log("service added successful");
+  });
+}
+
+addPlumService(worker) {
+
+  this.writePost = this.dog.collection<any>('servicesPlumbing');
   this.writePost.add(worker).then(() =>{
 
     console.log("service added successful");
