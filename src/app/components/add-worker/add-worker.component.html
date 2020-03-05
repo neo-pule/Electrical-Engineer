@@ -1,57 +1,51 @@
-<div class="example-container">
-    <mat-form-field>
-      <input matInput class="field" placeholder="Name" [(ngModel)]="worker.name">
-   
-    </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input  matInput class="field" placeholder="Surname" [(ngModel)]="worker.surname">
-  </mat-form-field>
-<br>
-<mat-form-field>
-  <input matInput class="field" placeholder="Phone number" [(ngModel)]="worker.phoneNo" >
-</mat-form-field>
-<br>
-<mat-form-field>
-  <input matInput class="field" placeholder="speciality">
-</mat-form-field>
-<br>
-<mat-form-field>
-  <input matInput class="field" placeholder="speciality" [(ngModel)]="worker.specialty">
-</mat-form-field>
-<br>
-<mat-form-field>
-  <input matInput class="field" placeholder="worker-id" [(ngModel)]="worker.workerid">
-</mat-form-field>
-<br>
-<mat-form-field>
-  <mat-select placeholder="Select" [(ngModel)]="worker.gender">
-    <mat-option value="Male">Male</mat-option>
-    <mat-option value="Female">Female</mat-option>
-  
+<div class="workers">
+    <h3 style="text-align: center;">Add Worker</h3>
+</div>
 
-  </mat-select>
-</mat-form-field>
-<br>
-<!-- <mat-form-field>
-  <mat-select placeholder="Select">
-    <mat-option value="option">Male</mat-option>
-    <mat-option value="option">Female</mat-option>
-  </mat-select>
-</mat-form-field> -->
-<mat-form-field>
-  <input matInput class="field" placeholder="speciality">
-</mat-form-field>
-<br>
-<mat-form-field>
-  <textarea matInput placeholder="write bio .." [(ngModel)]="worker.bio"></textarea>
-</mat-form-field>
-    <!-- <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field> -->
+<div class="workersform">
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="Name" [(ngModel)]="worker.name">
+
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="Surname" [(ngModel)]="worker.surname">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="Phone number" [(ngModel)]="worker.phoneNo">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="speciality">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="speciality" [(ngModel)]="worker.specialty">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="worker-id" [(ngModel)]="worker.workerid">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <mat-select placeholder="Select" [(ngModel)]="worker.gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+
+
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:50%;">
+        <input matInput class="field" placeholder="speciality">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:50%;">
+        <textarea matInput placeholder="write bio .." [(ngModel)]="worker.bio"></textarea>
+    </mat-form-field>
+
     <br>
     <button (click)="submit()">next</button>
-  </div>
-  
+</div>

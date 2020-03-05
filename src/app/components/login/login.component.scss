@@ -1,58 +1,148 @@
-#login {
-    background:lightgray;
+// #login {
+//     background: lightgray;
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     bottom: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+// #card {
+//     background: white;
+//     padding: 40px;
+//     width: 500px;
+//     border-radius: 10px;
+//     img {
+//         height: 30vh;
+//         width: auto;
+//         margin: auto;
+//         display: block;
+//     }
+// }
+// #card #title {
+//     font-weight: bold;
+//     font-size: 1.3em;
+// }
+// #card .subtitle {
+//     color: #A0A0A0;
+//     margin-bottom: 40px;
+// }
+// #card input {
+//     width: 100%;
+//     margin-bottom: 20px;
+//     margin-top: 5px;
+//     background: #EEEEEE;
+//     border-style: none;
+//     border-radius: 5px;
+//     height: 30px;
+// }
+// #card .headings {
+//     color: gray;
+// }
+// #card button {
+//     background: red;
+//     color: white;
+//     width: 100%;
+//     height: 50px;
+//     border-radius: 5px;
+// }
+// #card .error {
+//     border-style: solid;
+//     border-color: red;
+//     border-width: 1px;
+// }
+// #card .failed {
+//     color: red;
+// }
+.logo {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #card {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(rgba(rgb(238, 11, 11), .75), rgba(rgba(80, 31, 31, 0.692), .85)), url("/assets/bg.jpg") no-repeat;
+    // min-height: 100%;
+    // background-size: cover;
+    // background-position: 50% 0;
+    h1 {
+        position: absolute;
+        top: 70%;
+        left: 18%;
+        color: white;
+    }
+    // h3 {
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 98px;
+    //     color: white;
+    // }
+    img {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+    }
+}
+
+.loginform {
+    position: absolute;
+    top: 40%;
+    right: 8%;
+    // background-color: gray;
+}
+
+.loginform {
     background: white;
     padding: 40px;
-    width: 500px;
+    width: 30%;
     border-radius: 10px;
-    img{
-      height: 30vh;
-    width: auto;
-    margin: auto;
-    display: block;
-  }
-  }
-  #card #title {
-    font-weight: bold;
-    font-size: 1.3em;
-  }
-  #card .subtitle {
-    color: #A0A0A0;
-    margin-bottom: 40px;
-  }
-  #card input {
+    //     // img {
+    //     //     height: 30vh;
+    //     //     width: auto;
+    //     //     margin: auto;
+    //     //     display: block;
+    //     // }
+}
+
+// .loginform #title {
+//     font-weight: bold;
+//     font-size: 1.3em;
+// }
+// .loginform .subtitle {
+//     color: #A0A0A0;
+//     margin-bottom: 40px;
+// }
+.example-full-width {
     width: 100%;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    background: #EEEEEE;
-    border-style: none;
-    border-radius: 5px;
-    height: 30px;
-  }
-  #card .headings {
+    // margin-bottom: 20px;
+    // margin-top: 5px;
+    // background: #EEEEEE;
+    // border-style: none;
+    // border-radius: 5px;
+    // height: 30px;
+}
+
+.loginform .headings {
     color: gray;
-  }
-  #card button {
-    background: red;
+}
+
+.loginform button {
+    background: rgb(238, 54, 54);
     color: white;
     width: 100%;
-    height: 50px;
+    height: 40px;
     border-radius: 5px;
-  }
-  #card .error {
+}
+
+.loginform .error {
     border-style: solid;
     border-color: red;
     border-width: 1px;
-  }
-  #card .failed {
+}
+
+.loginform .failed {
     color: red;
-  }
+}
+
+.admin {
+    color: rgb(238, 54, 54);
+}

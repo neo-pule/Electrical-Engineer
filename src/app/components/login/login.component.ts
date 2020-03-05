@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.route.navigateByUrl('detail');
+    this.route.navigateByUrl('request-details');
   }
   valid(field) {
     if (!this.submitted) {
@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
     }
       }
   ngOnInit() {
+  
 
   }
   }
