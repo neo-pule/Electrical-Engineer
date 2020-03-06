@@ -25,7 +25,7 @@ const routes: Routes = [
     {path : 'listService', component : ListServiceComponent},
     {path : 'invoice', component : InvoiceComponent},
     {path : 'service', component : ServiceComponent},
-    {path : 'output-graph', component : OutputGraphComponent},
+    {path : '', component : OutputGraphComponent},
     {path : 'request-app', component : RequestAppComponent},
     {path : 'request', component : RequestComponent},
     {path : 'request-m', component : RequestMComponent},

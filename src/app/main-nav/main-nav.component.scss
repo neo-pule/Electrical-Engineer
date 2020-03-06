@@ -15,10 +15,16 @@
 //   top: 0;
 //   z-index: 1;
 // }
+#toolbar{
+  position: relative;
+  background-color: red;
+}
 .one{
   display: flex;
   flex-direction: column;
   position: relative;
+  top : 7.8vh;
+ 
 }
 .example-container {
   display: flex;

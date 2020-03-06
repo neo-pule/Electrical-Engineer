@@ -1,7 +1,7 @@
 
 
 <mat-sidenav-container class="example-container">
-  <mat-toolbar class="example-header">Header</mat-toolbar>
+ 
   <mat-sidenav #sidenav mode="side" [(opened)]="opened"
                (closed)="events.push('close!')">
                <div class="one">
@@ -10,7 +10,7 @@
               <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/listService']">Users</button>
               
 
-              <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/invoice']">Invoice</button>
+              <!-- <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/invoice']">Invoice</button> -->
 
               
               <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/request-app']">Request</button>
@@ -24,7 +24,8 @@
 
   <mat-sidenav-content>
     <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+    <mat-toolbar id="toolbar" (click)="sidenav.toggle()">Home</mat-toolbar>
+    <app-output-graph></app-output-graph>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

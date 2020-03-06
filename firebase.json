@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist\\graduate-exit-program",
+    "public": "dist/graduate-exit-program",
     "ignore": [
       "firebase.json",
       "**/.*",

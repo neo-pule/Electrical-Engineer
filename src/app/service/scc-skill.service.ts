@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 
 export class SccSkillService {
   writePost;
-  private itemDoc: AngularFirestoreDocument<Item>; // class name
+  key : string = "";
+  private itemDoc: AngularFirestoreDocument<request>; // class name
 
   constructor (private dog : AngularFirestore, private store : StoreInvoiceService) {
     
@@ -38,14 +39,25 @@ console.log(obj);
     );
 
 }
-updateUserObj(item){
+updateUserObj(item,key){
   console.log(item)
-  let id = this.store.getKey();
-  // single field of request
-  this.itemDoc = this.dog.collection('user/').doc(item.id).collection('request').doc(id);
-  this.itemDoc.update(item).then(() =>{
-    alert(item.name +' is updated successful')
-  });
+  // this.key = this.store.getKey();
+  // single field of request this.itemDoc = 
+  console.log(key)
+this.dog.collection('user/').doc(item.id).collection('request').doc(key).update({
+  photoURL : item
+})
+// .subscribe((ee) => {
+//   console.log(ee)
+// })
+  // this.dog.collection('user/').doc(item.id).collection('request').doc(id).snapshotChanges()
+  // .subscribe((ee) => {
+  //   console.log(ee);
+  // }
+  // );
+  // this.itemDoc.update(item).then(() =>{
+  //   alert(item.name +' is updated successful')
+  // });
   console.log("service updated succesful");
 }
 

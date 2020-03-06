@@ -7,6 +7,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { SccSkillService } from 'src/app/service/scc-skill.service';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-invoice',
@@ -21,6 +22,7 @@ export class InvoiceComponent implements OnInit {
   imgURL;
 text = "";
 key;
+keys;
 id;
 singleRequest : any;
 multipleRequest : any;
@@ -36,7 +38,7 @@ userObj : any;
 costSingle=0;
 costM : [] = [];
 listArr;
-  constructor(private afs: AngularFirestore, private storage: AngularFireStorage,private addr: ActivatedRoute,  private _invoiceService: StoreInvoiceService) { }
+  constructor(private skill : SccSkillService,private afs: AngularFirestore, private storage: AngularFireStorage,private addr: ActivatedRoute,  private _invoiceService: StoreInvoiceService) { }
 
   uploadFile(files) {
     if (files.length === 0){
@@ -59,8 +61,8 @@ listArr;
   console.log(reader)
   reader.onload = (_event) => {
     this.imgURL = reader.result;
-    console.log(this.imgURL)
-    console.log(reader.result)
+    // console.log(this.imgURL)
+    // console.log(reader.result)
   }
   console.log(this.imgURL)
     // const file = event.target.files[0];
@@ -174,14 +176,25 @@ row.push(this.costM);
       // pageOrientation: 'portrait'};
       // console.log(this.request[i])
       console.log("*** print pdf")
-      const pdfDocGenerator  = pdfMake.createPdf(dd).open();
+      const pdfDocGenerator  = pdfMake.createPdf(dd).download();
       // console.log(pdfDocGenerator)
     }
   
   }
 
   test(){
-    console.log(this._invoiceService.getKey())
+    this.key = this._invoiceService.getKey();
+    console.log('user id :'+this.keys)
+    console.log('request id :'+this.key )
+    // console.log(this._invoiceService.getKey());
+    // console.log(this.userObj);
+    // this.skill.updateUserObj(this.userObj,this.keys);
+    let id = this.userObj.id;
+
+    this.afs.collection('user/').doc(this.keys).collection('request').doc(this.key).update({
+      photoURL : this.mainImage
+    });
+    
   }
   ngOnInit() {
 
@@ -228,8 +241,8 @@ row.push(this.costM);
 
 
       })
-     
-      console.log(this.userObj.uid)
+     this.keys = this.userObj.uid;
+      console.log(this.keys)
     console.log(this._invoiceService.getInvoice().service);
     console.log(this._invoiceService.getInvoice().serviceDesc );
     console.log(this.multipleRequest );
