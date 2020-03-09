@@ -10,3 +10,18 @@ margin-top : 20px;
     // left: 400px;
    text-align : center;
  }
+ mat-grid-list {
+  width: 90%;
+  // position: relative;
+  margin-top: 40px;
+  margin-left: 90px;
+  // align-content: right;
+  // left: 80px;
+}
+mat-tab-group {
+  position: absolute;
+  top: 2%;
+  width: 95%;
+  margin-top: 40px;
+  margin-left: 40px;
+}

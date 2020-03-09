@@ -14,9 +14,9 @@ export class AuthGuardService {
       // var user = firebase.auth().currentUser;
     afAuth.auth.onAuthStateChanged((user) => {
       if (user) {
-        // this.route.navigateByUrl('home')
+        this.route.navigateByUrl('')
       } else {
-        this.route.navigateByUrl('login')
+        // this.route.navigateByUrl('login')
       }
     })
 
@@ -26,7 +26,7 @@ export class AuthGuardService {
   async signIn(email: string, password: string) {
     await this.afAuth.auth.signInWithEmailAndPassword(email, password).then((success) => {
       alert(email + 'successful signed in ..')
-      this.route.navigateByUrl('login')
+      this.route.navigateByUrl('main-nav')
     }).catch((err) => {
       alert(err)
     })

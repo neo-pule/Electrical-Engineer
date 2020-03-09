@@ -25,7 +25,7 @@ constructor(private route : Router) {
 }
 
 push(){
-  this.route.navigateByUrl('addWorker');
+  this.route.navigateByUrl('main-nav/listService');
 }
 
 

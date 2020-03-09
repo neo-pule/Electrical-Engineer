@@ -17,6 +17,7 @@ import { RequestMDetailComponent } from './components/request-m-detail/request-m
 import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
 
 const routes: Routes = [
+
   {path : 'main-nav', component : MainNavComponent , children : [
     {path : 'home', component:HomeComponent},
     {path : 'addWorker', component:AddWorkerComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
     {path : 'listService', component : ListServiceComponent},
     {path : 'invoice', component : InvoiceComponent},
     {path : 'service', component : ServiceComponent},
-    {path : '', component : OutputGraphComponent},
+    {path : 'output-graph', component : OutputGraphComponent},
     {path : 'request-app', component : RequestAppComponent},
     {path : 'request', component : RequestComponent},
     {path : 'request-m', component : RequestMComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
     {path : 'request-details', component : RequestDetailsComponent},
   ]},
   
- {path : 'login', component:LoginComponent},
+ {path : '', component:LoginComponent},
 
 
 ];

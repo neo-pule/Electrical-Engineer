@@ -31,15 +31,22 @@ service : any = "";
 desc :any = "";
 flag;
 pic : any;
+task :  number;
 downloadU : any;
 uploadPercent: any;
 mainImage : any;
 userObj : any;
 costSingle=0;
-costM : [] = [];
+costM = [];
 listArr;
+sast = 0;
   constructor(private skill : SccSkillService,private afs: AngularFirestore, private storage: AngularFireStorage,private addr: ActivatedRoute,  private _invoiceService: StoreInvoiceService) { }
 
+
+  test1() {
+console.log(this.sast);
+console.log(this.costM);
+  }
   uploadFile(files) {
     if (files.length === 0){
       console.log("Only pdf are supported.")
@@ -71,6 +78,11 @@ listArr;
     const task = this.storage.upload(filePath, file);
     // observe percentage changes
     this.uploadPercent = task.percentageChanges();
+     task.snapshotChanges().subscribe((ee) => {
+       this.task =ee.bytesTransferred;
+       console.log(this.task )
+       console.log(ee.totalBytes)
+     })
     task.snapshotChanges().pipe(
       finalize(() => {
         this.downloadU = fileRef.getDownloadURL().subscribe(url => {

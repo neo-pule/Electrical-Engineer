@@ -2,30 +2,25 @@
 
 <mat-sidenav-container class="example-container">
  
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened"
-               (closed)="events.push('close!')">
+  <mat-sidenav  mode="side" id="content" opened>
                <div class="one">
-               <button mat-button style="align-items: flex-end;"  [routerLink]="['/main-nav/output-graph']">Home</button>
-   
-              <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/listService']">Users</button>
+               <button mat-button  [routerLink]="['output-graph']">Home</button>
+               <button mat-button [routerLink]="['listUser']" >Users</button>
+              <button mat-button (click)="push()" >Services</button>
               
 
-              <!-- <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/invoice']">Invoice</button> -->
+              <!-- <button mat-button style="align-items: flex-end;"   [routerLink]="['/main-nav/listService']" [routerLink]="['/main-nav/invoice']">Invoice</button> -->
 
               
-              <button mat-button style="align-items: flex-end;" [routerLink]="['/main-nav/request-app']">Request</button>
+              <button mat-button  [routerLink]="['request-app']">Request</button>
             </div>
-              <!--             
-              <a mat-list-item [routerLink]="['/main-nav/service']">
-                <i class="material-icons">dashboard</i>
-                <span style="margin-left: 20px;">Payment</span>
-              </a> -->
+         
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
     <mat-toolbar id="toolbar" (click)="sidenav.toggle()">Home</mat-toolbar>
-    <app-output-graph></app-output-graph>
+    <!-- <app-output-graph></app-output-graph> -->
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
+  </mat-sidenav-content >
 </mat-sidenav-container>

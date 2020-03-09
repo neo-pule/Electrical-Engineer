@@ -16,8 +16,14 @@
 //   z-index: 1;
 // }
 #toolbar{
-  position: relative;
+  position: sticky;
   background-color: red;
+  // margin-bottom: 20px;
+
+}
+#content{
+  position: absolute;
+  width: 15%;
 }
 .one{
   display: flex;
