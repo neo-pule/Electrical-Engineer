@@ -5,6 +5,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { HomeComponent } from '../home/home.component';
+
+import { StoreInvoiceService } from '../../service/store-invoice.service';
 export interface Food {
   calories: number;
   carbs: number;
@@ -37,18 +41,35 @@ export class ServiceComponent implements OnInit {
   storag: any;
   mainImage: any;
   downloadU: any;
-  constructor(private skill: SccSkillService, private storage: AngularFireStorage,) { }
+  constructor(private storeUser : StoreInvoiceService,public dialog: MatDialog,private skill: SccSkillService, private storage: AngularFireStorage,) { }
   dataSourc: any;
   message;
   imgUrl;
   imgPath;
+  name= 'Thabo';
+  animal ="JACK";
   service = {
     name: '',
     description: '',
     cost: 0,
     image: ''
   };
+  openDialog(obj : any): void {
+    console.log(obj)
+    this.storeUser.storeuser(obj);
+    const dialogRef = this.dialog.open(HomeComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  
+  
+
+}
   uploadFile(files) {
     if (files.length === 0)
     return;

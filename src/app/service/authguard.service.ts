@@ -14,9 +14,9 @@ export class AuthGuardService {
       // var user = firebase.auth().currentUser;
     afAuth.auth.onAuthStateChanged((user) => {
       if (user) {
-        this.route.navigateByUrl('')
+        this.route.navigateByUrl('main-nav')
       } else {
-        // this.route.navigateByUrl('login')
+        this.route.navigateByUrl('login')
       }
     })
 

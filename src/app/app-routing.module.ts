@@ -19,6 +19,7 @@ import { OutputGraphComponent } from './charts/output-graph/output-graph.compone
 const routes: Routes = [
 
   {path : 'main-nav', component : MainNavComponent , children : [
+    { path: '', redirectTo: 'output-graph', pathMatch: 'full' },
     {path : 'home', component:HomeComponent},
     {path : 'addWorker', component:AddWorkerComponent},
     {path : 'addService', component:AddServiceComponent},
@@ -34,7 +35,7 @@ const routes: Routes = [
     {path : 'request-details', component : RequestDetailsComponent},
   ]},
   
- {path : '', component:LoginComponent},
+ {path : 'login', component:LoginComponent},
 
 
 ];

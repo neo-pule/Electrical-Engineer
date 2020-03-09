@@ -9,6 +9,7 @@ export class StoreInvoiceService {
   invoiceObjIct: any;
   invoiceObjEle: any;
   userObj : any;
+  user : any;
   key;
   constructor() { }
 
@@ -23,6 +24,12 @@ export class StoreInvoiceService {
   }
   getInvoiceM(){
     return {ele :this.invoiceObjEle,ict :this.invoiceObjIct};
+  }
+  storeuser(user : any) {
+  this.user = user;
+  }
+  getUser(){
+    return this.user ;
   }
   storeKey(id : any){
     this.key = id;
