@@ -12,12 +12,22 @@
 //   top: 0;
 //   z-index: 1;
 // }
+#toolbar {
+    position: sticky;
+    background-color: red;
+    // margin-bottom: 20px;
+}
+
+#content {
+    position: absolute;
+    width: 15%;
+}
+
 .one {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 15%;
-    color: white;
+    top: 7.8vh;
 }
 
 .example-container {

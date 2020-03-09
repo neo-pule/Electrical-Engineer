@@ -1,6 +1,10 @@
 {
   "hosting": {
+<<<<<<< HEAD
     "public": "dist/Electrical",
+=======
+    "public": "dist/graduate-exit-program",
+>>>>>>> 90c4b608af4b636d810e17310ba4bf5dc788b331
     "ignore": [
       "firebase.json",
       "**/.*",
