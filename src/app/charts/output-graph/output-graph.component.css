@@ -1,0 +1,24 @@
+#container {
+  position: absolute;
+  width: 48%;
+  left: 22px;
+  height: 45%;
+}
+
+#container1 {
+  position: absolute;
+  top: 65px;
+  right: 22px;
+  width: 48%;
+  height: 45%;
+}
+
+#container2 {
+  position: absolute;
+  bottom: 0px;
+  margin-top: 10px;
+  left: 22px;
+  width: 48%;
+  height: 45%;
+}
+/*# sourceMappingURL=output-graph.component.css.map */

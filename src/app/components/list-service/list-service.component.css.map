@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,aAAa,CAAC;EACV,UAAU,EAAE,SAAS;CAEtB;;AACD,AAAA,aAAa,CAAC;EACZ,KAAK,EAAE,GAAG;EAEV,UAAU,EAAE,IAAI;EAChB,WAAW,EAAE,IAAI;CAGlB",
+    "sources": [
+        "list-service.component.scss"
+    ],
+    "names": [],
+    "file": "list-service.component.css"
+}
