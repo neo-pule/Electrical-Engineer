@@ -10,6 +10,7 @@ export class StoreInvoiceService {
   invoiceObjEle: any;
   userObj : any;
   user : any;
+  user1 : any;
   key;
   constructor() { }
 
@@ -31,6 +32,13 @@ export class StoreInvoiceService {
   getUser(){
     return this.user ;
   }
+
+  storeuser1(user : any) {
+    this.user1 = user;
+    }
+    getUser1(){
+      return this.user1 ;
+    }
   storeKey(id : any){
     this.key = id;
   }

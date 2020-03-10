@@ -1,11 +1,17 @@
 import { Component, Inject } from '@angular/core';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DialogData } from '../add-service/add-service.component';
+// import { DialogData } from '../add-service/add-service.component';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 
 import { StoreInvoiceService } from '../../service/store-invoice.service';
+import { Router } from '@angular/router';
+import { SccSkillService } from 'src/app/service/scc-skill.service';
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,6 +23,12 @@ export class HomeComponent  {
   mainImage;
   imgURL;
   downloadU;
+
+  name ;
+  description;
+  cost;
+  photoURL;
+
   service = {
     name : "",
     description :"",
@@ -35,7 +47,7 @@ export class HomeComponent  {
 
 
   constructor(private storeUser : StoreInvoiceService,public dialogRef: MatDialogRef<HomeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private storage: AngularFireStorage) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,private storage: AngularFireStorage,private route : Router,private skill: SccSkillService) { }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -81,10 +93,19 @@ export class HomeComponent  {
   }
 
   test() {
-    if(this.User.name != "") {
-      if(this.User.description != "") {
-        if(this.User.cost != 0 || this.User.cost !=  null)  {
-          console.log(this.User)
+    if(this.name != "") {
+      if(this.description != "") {
+        if(this.cost != 0 || this.cost !=  null)  {
+        
+          this.User.id  = this.storeUser.getUser().id;
+           this.User.name = this.name ;
+          this.User.description = this.description ;
+          this.User.cost = this.cost ;
+           this.User.photoURL = this.photoURL ;
+           this.skill.updateService(this.User);
+this.dialogRef.close();
+  
+
           } else {
             
           alert("Service cost required")
@@ -102,10 +123,23 @@ export class HomeComponent  {
       }
     
   
+test1(){
+  this.User.id  = this.storeUser.getUser().id;
+  this.User.name = this.name ;
+  this.User.description = this.description ;
+  this.User.cost = this.cost ;
+   this.User.photoURL = this.photoURL ;
+   
+console.log(this.User)
+this.skill.updateService(this.User);
+this.dialogRef.close();
 
+}
   ngOnInit() {
-   this.User = this.storeUser.getUser();
-   console.log(this.User)
+    this.name = this.storeUser.getUser().name;
+    this.description = this.storeUser.getUser().description;
+    this.cost = this.storeUser.getUser().cost;
+    this.photoURL = this.storeUser.getUser().photoURL;
   }
 
 }

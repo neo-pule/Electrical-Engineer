@@ -3,7 +3,7 @@
    <h2>Update Service</h2>
    <div class="example-container">
 <div class="button">
-  <img [src]="User.photoURL" alt="avatar"  (click)="file.click()" height="145" width="220" >
+  <img [src]="photoURL" alt="avatar"  (click)="file.click()" height="145" width="220" >
   <input #file type="file"  style="display: none;" (change)="uploadFile(file.files)" accept='image/*' />
    <!--  <input id="file-input1" type="file" accept="image/*" (change)="uploadFile(file.files)" /> -->
    
@@ -11,15 +11,15 @@
 
 <br>
 <mat-form-field>
- <input matInput placeholder="Service name"  [(ngModel)]="User.name">
+ <input matInput placeholder="Service name"  [(ngModel)]="name">
 </mat-form-field>
 <br>
  <mat-form-field>
-   <input matInput placeholder="Service Description" [(ngModel)]="User.description">
+   <input matInput placeholder="Service Description" [(ngModel)]="description">
  </mat-form-field>
  <br>
  <mat-form-field>
-  <input matInput placeholder="Service Cost" type="number"  [(ngModel)]="User.cost">
+  <input matInput placeholder="Service Cost" type="number"  [(ngModel)]="cost">
 </mat-form-field>
 <br>
 <button mat-button style="align-items: flex-end;"  (click)="test()">submit</button>

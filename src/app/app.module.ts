@@ -47,6 +47,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatGridListModule,
+  MatDialogRef,
 } from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -62,7 +63,7 @@ import { RequestMComponent } from './components/request-m/request-m.component';
 import { RequestAppComponent } from './components/request-app/request-app.component';
 import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
-
+// import { HomeComponent } from '../app/components/home/home.component';
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
     authDomain: "eletrical-engineer-cms.firebaseapp.com",
@@ -142,7 +143,7 @@ OutputGraphComponent
     MatGridListModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

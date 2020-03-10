@@ -45,6 +45,7 @@ export class ServiceComponent implements OnInit {
   dataSourc: any;
   message;
   imgUrl;
+  obj :   any;
   imgPath;
   name= 'Thabo';
   animal ="JACK";
@@ -58,8 +59,7 @@ export class ServiceComponent implements OnInit {
     console.log(obj)
     this.storeUser.storeuser(obj);
     const dialogRef = this.dialog.open(HomeComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
+ 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -159,7 +159,7 @@ export class ServiceComponent implements OnInit {
     //     };
     //   });
     // })
-
+  
     this.skill.viewServiceElectrical().subscribe((err) => {
       this.arrayService = err;
       console.log(this.arrayService)

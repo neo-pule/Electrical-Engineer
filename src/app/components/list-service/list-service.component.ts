@@ -6,6 +6,7 @@ import { ListServiceDataSource, ListServiceItem } from '../list-service/list-ser
 import { AngularFirestoreDocument, AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import {MatTableDataSource} from '@angular/material'
 import { Router } from '@angular/router';
+import { StoreInvoiceService } from 'src/app/service/store-invoice.service';
 
 export interface Food {
    calories: number;
@@ -38,6 +39,7 @@ export class ListServiceComponent implements OnInit {
 
  data: any;
   array;
+  obj : any;
  displayedColumns: string[] = ['name', 'calories', 'fat', 'carbs','protein'];
 
   constructor(private afs: AngularFirestore,private route : Router) { }
@@ -58,6 +60,7 @@ export class ListServiceComponent implements OnInit {
   }
   ngOnInit() {
 
+   
     this.afs.collection('Graduate/').snapshotChanges().subscribe((data: any) => {
       this.array = data.map(e => {
         return {
@@ -72,5 +75,5 @@ export class ListServiceComponent implements OnInit {
       this.data.sort = this.sort;
     });
   }
-
+  
 }

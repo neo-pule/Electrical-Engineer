@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SccSkillService } from '../../service/scc-skill.service';
 import { Router } from '@angular/router'
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { StoreInvoiceService } from 'src/app/service/store-invoice.service';
+import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-add-worker',
   templateUrl: './add-worker.component.html',
@@ -40,17 +42,33 @@ service = {
   photoURL : ""
 
 }
+animal;
 name="";
 desc="";
 cost="";
-  constructor(private route : Router,private skillService : SccSkillService,private storage: AngularFireStorage) { }
+  constructor(private storeUser : StoreInvoiceService,public dialog: MatDialog,private route : Router,private skillService : SccSkillService,private storage: AngularFireStorage) { }
   displayedColumns: string[] = ['name', 'description', 'cost', 'actions'];
   try(){
     console.log(this.worker);
     console.log(this.temp);
   }
+
+  openDialog(obj : any): void {
+    console.log(obj)
+    this.storeUser.storeuser(obj);
+    const dialogRef = this.dialog.open(HomeComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
   delete(a) {
-    this.skillService.delete(a);
+    this.skillService.delete1(a);
     console.log(a.name + " deleted!")
   }
   uploadFile(files) {

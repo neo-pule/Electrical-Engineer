@@ -39,6 +39,24 @@ console.log(obj);
     );
 
 }
+delete1(obj :any){
+  console.log(obj);
+      return this.dog.collection('servicesPlumbing/').doc(obj.id).delete().then(() =>{
+  
+        alert('service '+ obj.name+' successful deleted');
+      }
+      );
+  
+  }
+  delete2(obj :any){
+    console.log(obj);
+        return this.dog.collection('serviceICT/').doc(obj.id).delete().then(() =>{
+    
+          alert('service '+ obj.name+' successful deleted');
+        }
+        );
+    
+    }
 updateUserObj(item,key){
   console.log(item)
   // this.key = this.store.getKey();
@@ -62,8 +80,17 @@ this.dog.collection('user/').doc(item.id).collection('request').doc(key).update(
 }
 
 updateService(item){
-  console.log(item)
+  console.log(item.id)
   this.itemDoc = this.dog.collection('services/').doc(item.id);
+  this.itemDoc.update(item).then(() =>{
+    alert(item.name +' is updated successful')
+  });
+  console.log("service updated succesful");
+}
+
+updateService1(item){
+  console.log(item.id)
+  this.itemDoc = this.dog.collection('serviceICT/').doc(item.id);
   this.itemDoc.update(item).then(() =>{
     alert(item.name +' is updated successful')
   });

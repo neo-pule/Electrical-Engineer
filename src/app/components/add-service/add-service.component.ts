@@ -5,10 +5,10 @@ import {Router, ActivatedRoute} from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { HomeComponent } from '../home/home.component';
+import { StoreInvoiceService } from 'src/app/service/store-invoice.service';
 @Component({
   selector: 'app-add-service',
   templateUrl: './add-service.component.html',
@@ -27,11 +27,25 @@ service = {
 displayedColumns: string[] = ['name', 'description', 'cost', 'actions'];
 arrayService;
 dataSourc;
+name;
+animal;
 @Input() temp:any;
 
-  constructor( private nav : ActivatedRoute,private skillService : SccSkillService) {}
+  constructor(private route : Router,private storeUser : StoreInvoiceService,public dialog: MatDialog, private nav : ActivatedRoute,private skillService : SccSkillService) {}
     // @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
+
+    openDialog(obj : any): void {
+      console.log(obj)
+      this.storeUser.storeuser(obj);
+      let a = "electric"
+      
+      this.dialog.open(HomeComponent);
+      // this.route.navigate(['main-nav/home'],{queryParams : {state : a}});
+     
+    }
+  
+      
     try(arr){
       // this.skillService.updateService(arr);
       console.log(arr);
@@ -45,7 +59,7 @@ dataSourc;
     console.log(this.temp);
   }
   delete(a) {
-    this.skillService.delete(a);
+    this.skillService.delete2(a);
     console.log(a.name + " deleted!")
   }
   ngOnInit() {
