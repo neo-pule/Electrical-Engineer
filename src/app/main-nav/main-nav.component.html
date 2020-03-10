@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
 
-    <mat-sidenav mode="side" id="content" opened>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (closed)="events.push('close!')" class="list">
         <div class="one">
             <button mat-button [routerLink]="['output-graph']">Home</button>
             <button mat-button [routerLink]="['listUser']">Users</button>
@@ -17,7 +17,12 @@
 
     <mat-sidenav-content>
         <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
-        <mat-toolbar id="toolbar" (click)="sidenav.toggle()">Home</mat-toolbar>
+
+        <mat-toolbar id="toolbar">
+            <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="sidenav.toggle()">menu</mat-icon>
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            <h1>Sekhasimbe Conientious Company(PTY)LTD</h1>
+        </mat-toolbar>
         <!-- <app-output-graph></app-output-graph> -->
         <router-outlet></router-outlet>
     </mat-sidenav-content>

@@ -14,8 +14,9 @@
 // }
 #toolbar {
     position: sticky;
-    background-color: red;
+    background-color: rgb(214, 46, 46);
     // margin-bottom: 20px;
+    color: white;
 }
 
 #content {
@@ -27,7 +28,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 7.8vh;
+    top: 8.8vh;
+    color: white;
 }
 
 .example-container {
@@ -43,5 +45,5 @@
 .list {
     overflow-x: hidden;
     overflow-y: hidden !important;
-    background: linear-gradient(rgba(rgb(238, 11, 11), .75), rgba(rgba(80, 31, 31, 0.692), .85)), url("/assets/bg.jpg") no-repeat;
+    background: linear-gradient(rgba(rgb(240, 23, 23), .75), rgba(rgba(238, 12, 12, 0.692), .85)), url("/assets/bg.jpg") no-repeat;
 }
