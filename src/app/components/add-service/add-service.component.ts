@@ -27,7 +27,7 @@ service = {
 displayedColumns: string[] = ['name', 'description', 'cost', 'actions'];
 arrayService;
 dataSourc;
-name;
+name="ict";
 animal;
 @Input() temp:any;
 
@@ -40,7 +40,10 @@ animal;
       this.storeUser.storeuser(obj);
       let a = "electric"
       
-      this.dialog.open(HomeComponent);
+      this.dialog.open(HomeComponent, {
+        width: '250px',
+        data: {name: this.name}
+      });
       // this.route.navigate(['main-nav/home'],{queryParams : {state : a}});
      
     }

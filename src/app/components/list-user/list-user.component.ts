@@ -37,7 +37,7 @@ export class ListUserComponent implements OnInit {
     {name: 'Gingerbreads', calories: 356, fat: 16, carbs: 49, protein: 4},
  ];
  //displayedColumns: string[] = ['name', 'calories', 'fat', 'carbs','protein'];
-  displayedColumns: string[] = ['name', 'surname', 'role', 'location','phone','actions'];
+  displayedColumns: string[] = ['name', 'surname','location','phone','actions'];
  array;
  dataSourc : any;
  animal: string;

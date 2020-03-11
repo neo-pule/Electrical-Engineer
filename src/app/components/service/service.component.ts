@@ -47,7 +47,7 @@ export class ServiceComponent implements OnInit {
   imgUrl;
   obj :   any;
   imgPath;
-  name= 'Thabo';
+  name= 'electrical';
   animal ="JACK";
   service = {
     name: '',
@@ -59,7 +59,8 @@ export class ServiceComponent implements OnInit {
     console.log(obj)
     this.storeUser.storeuser(obj);
     const dialogRef = this.dialog.open(HomeComponent, {
- 
+      width: '250px',
+      data: {name: this.name}
     });
 
     dialogRef.afterClosed().subscribe(result => {

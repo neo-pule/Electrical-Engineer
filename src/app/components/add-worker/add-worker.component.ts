@@ -42,6 +42,7 @@ service = {
   photoURL : ""
 
 }
+name1="plumbing";
 animal;
 name="";
 desc="";
@@ -54,11 +55,11 @@ cost="";
   }
 
   openDialog(obj : any): void {
-    console.log(obj)
+    // console.log(obj)
     this.storeUser.storeuser(obj);
     const dialogRef = this.dialog.open(HomeComponent, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: {name: this.name1}
     });
 
     dialogRef.afterClosed().subscribe(result => {

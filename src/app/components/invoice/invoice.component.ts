@@ -133,7 +133,7 @@ console.log(this.costM);
     pageOrientation: 'portrait'};
     // console.log(this.request[i])
     console.log("*** print pdf")
-    const pdfDocGenerator  = pdfMake.createPdf(invoiceDoc).open();
+    const pdfDocGenerator  = pdfMake.createPdf(invoiceDoc).download();
     console.log(pdfDocGenerator)
     } else {
       var rows = [];
@@ -147,6 +147,11 @@ row.push(this.costM);
 
       var dd = {
         content: [
+          { text: 'SEKHASIMBE CONSIETIOUS COMPANY', style: 'header' },
+          { text: 'Reference number: ' , style: 'sub_header' },
+          { text: 'Request Issued date : ', style: 'sub_header' },
+          { text: 'Electrical Technology Supplier & Services Provider', style: 'sub_header' },
+          { text: 'WEBSITE: under-construction', style: 'url' },
           { ol: [
                   { text: rows +''+row, style: 'header' },
                   ]},
@@ -216,6 +221,7 @@ row.push(this.costM);
       console.log(this.flag);
     });
 
+
     if (this.flag == "true") {
       this.multipleRequest = this._invoiceService.getInvoiceM().ele;
       this.multipleRequest1 = this._invoiceService.getInvoiceM().ict;
@@ -225,13 +231,17 @@ row.push(this.costM);
       this.singleRequest = this._invoiceService.getInvoice();
       this.service = this._invoiceService.getInvoice().service;
       console.log("false");
+      console.log(this.service+"  &" + this.desc);
       this.desc = this._invoiceService.getInvoice().serviceDesc;
       this._invoiceService.storeInvoiceM('','');
     }
   
-    this.userObj= this._invoiceService.getUserObj();
-    
+    this.userObj= this._invoiceService.getInvoice();
+
+    console.log(this.userObj);
     // if (this._invoiceService.getInvoice().service) {
+
+
       this.afs.collection('user/').doc(this.userObj.uid).collection('request' , ref => ref.where('refNo', '==' ,this.userObj.refNo))   
       .snapshotChanges().subscribe((ee) => {
         
@@ -242,6 +252,8 @@ row.push(this.costM);
           this._invoiceService.storeKey(this.id)
         
         })
+
+
         // this.afs.collection('user/').doc(this.userObj.uid).collection('request').doc(this.id).snapshotChanges().subscribe((ee) =>{
         //   console.log(ee)
         // })
