@@ -95,6 +95,7 @@
     padding: 40px;
     width: 30%;
     border-radius: 10px;
+    color: black;
     //     // img {
     //     //     height: 30vh;
     //     //     width: auto;
@@ -145,4 +146,25 @@
 
 .admin {
     color: rgb(238, 54, 54);
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+
+ ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: gray !important;
+}
+
+ ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: black !important;
+    ;
+}
+
+ ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
 }

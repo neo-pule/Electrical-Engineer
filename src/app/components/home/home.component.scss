@@ -1,5 +1,37 @@
-.one{
+.one {
     position: relative;
     // left: 400px;
-   text-align : center;
- }
+    text-align: center;
+}
+
+.btn {
+    color: rgb(49, 46, 46);
+    background-color: red;
+    // width: 30%;
+    color: white;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+
+ ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: gray !important;
+}
+
+ ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: black !important;
+    ;
+}
+
+ ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+
+mat-datepicker-toggle {
+    color: black !important;
+}
