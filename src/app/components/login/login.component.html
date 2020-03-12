@@ -1,24 +1,3 @@
-<!-- <div class="outer">
-    <div class="middle">
-        <div id="login">
-            <div id="card">
-                <img src="../../../assets/scc (1).png" style="max-width: 200px; min-width: 20%; max-height: 120px;">
-
-
-                <form [formGroup]="form">
-                    <div>
-                        <span class="mat-body-1 headings">Email</span>
-                        <input type="email" formControlName="email" [ngClass]="{'error': !valid('email')}" />
-                    </div>
-                    <div>
-                        <span class="mat-body-1 headings">Password</span>
-                        <input type="password" formControlName="password" [ngClass]="{'error': !valid('password')}" />
-                    </div>
-                    <button (click)="submit()">Login</button>
-                    <p class="failed mat-body-1">{{error}}</p>
-                </form>
-            </div>
-        </div> -->
 <div class="logo">
     <img src="../../../assets/scc (1).png" style="max-width: 40%; min-width: 30%; max-height: 40%;">
     <h1>Sekhasimbe Conientious Company(pty)ltd</h1>
@@ -32,10 +11,7 @@
             <input matInput type="email" formControlName="email" [ngClass]="{'error': !valid('email')}" />
         </mat-form-field>
         <br>
-        <!-- <div>
-            <span class="mat-body-1 headings">Password</span>
-            <input type="password" formControlName="password" [ngClass]="{'error': !valid('password')}" />
-        </div> -->
+
         <mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="password" [ngClass]="{'error': !valid('password')}" />
