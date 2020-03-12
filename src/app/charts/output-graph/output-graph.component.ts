@@ -23,6 +23,7 @@ export class OutputGraphComponent implements OnInit {
     plumbing : any;
     ict : any;
 data : any;
+scoreArr = [];
 countE = 0;
 countI = 0;
 countP = 0;
@@ -76,7 +77,7 @@ countP = 0;
   series: [{
 
     // no of requests made per month
-
+      
       name: 'Electrical',
       data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
@@ -123,27 +124,40 @@ countP = 0;
                 }
             }
         },
+        
         series: [{
             name: 'Request',
             colorByPoint: true,
-            data: [{
+            data:[{
                 name: 'Plumbing',
                 y: this.countP,
                 sliced: true,
                 selected: true
-            }, {
+              }, {
                 name: 'ICT',
                 y: 2
-            }, {
+              }, {
                 name: 'Electricity',
                 y: this.countE
-            }]
-        }]
+              }]
+          }]
     };
 
 
 
-//     public options2: any = {
+// [{
+//   name: 'Plumbing',
+//   y: this.countP,
+//   sliced: true,
+//   selected: true
+// }, {
+//   name: 'ICT',
+//   y: 2
+// }, {
+//   name: 'Electricity',
+//   y: this.countE
+// }]
+//     public options2: any = {   
 //       data: {
 //         table: 'datatable'
 //     },
@@ -173,6 +187,7 @@ countP = 0;
 
   ngOnInit() {
 
+    this.scoreArr.push([5,10,21,30,50,80])
 
     this.afs.collection('servicesPlumbing/').snapshotChanges().subscribe((ee) =>{
     this.plumbing = ee.map ( e => {

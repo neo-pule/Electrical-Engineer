@@ -47,3 +47,11 @@
     overflow-y: hidden !important;
     background: linear-gradient(rgba(rgb(240, 23, 23), .75), rgba(rgba(238, 12, 12, 0.692), .85)), url("/assets/bg.jpg") no-repeat;
 }
+.img{
+    top: 2px;
+    position: absolute;
+    right: 2%;
+    height: 60px;
+    width: 65px;
+    border-radius: 50px 50px 50px 50px;
+}

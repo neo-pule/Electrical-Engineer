@@ -63,6 +63,8 @@ import { RequestMComponent } from './components/request-m/request-m.component';
 import { RequestAppComponent } from './components/request-app/request-app.component';
 import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 // import { HomeComponent } from '../app/components/home/home.component';
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -93,7 +95,8 @@ RequestDetailsComponent,
 RequestMComponent,
 RequestAppComponent,
 RequestMDetailComponent,
-OutputGraphComponent
+OutputGraphComponent,
+ProfileComponent
   ],
   imports: [
     BrowserModule,

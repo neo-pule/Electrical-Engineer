@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { AuthGuardService } from '../service/authguard.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -20,15 +21,22 @@ export class MainNavComponent implements OnDestroy{
     { name: 'Registered Students', page: 'posts'}
   ]
   pagesToDisplay = [];
-constructor(private route : Router) {
+constructor(private route : Router,private auth : AuthGuardService) {
 
 }
+
+logout() {
+  this.auth.signOut();
+}
+
 
 push(){
   this.route.navigateByUrl('main-nav/listService');
 }
 
-
+profile() {
+  this.route.navigateByUrl('main-nav/profile');
+}
 
 ngOnDestroy(): void {
 
