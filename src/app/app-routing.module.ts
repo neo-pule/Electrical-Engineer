@@ -34,9 +34,7 @@ const routes: Routes = [
     {path : 'request-m-detail', component : RequestMDetailComponent},
     {path : 'request-details', component : RequestDetailsComponent},
   ]},
-  
- {path : 'login', component:LoginComponent},
-
+  {path : '', component:LoginComponent, pathMatch: 'full'},
 
 ];
 
