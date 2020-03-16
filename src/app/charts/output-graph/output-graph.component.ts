@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -19,6 +20,8 @@ noData(Highcharts);
   styleUrls: ['./output-graph.component.scss']
 })
 export class OutputGraphComponent implements OnInit {
+  Highcharts = Highcharts;
+  chartOptions : {};
     electric : any;
     plumbing : any;
     ict : any;
@@ -27,7 +30,41 @@ scoreArr = [];
 countE = 0;
 countI = 0;
 countP = 0;
-  public options: any = {
+wait : boolean = false;
+
+ public options : any =  {
+  chart: {
+          // plotBackgroundColor: null,
+          // plotBorderWidth: null,
+          // plotShadow: false,
+          type: 'pie'
+      },
+      title: {
+          text: 'Total request made, 2020'
+      },
+      tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                  enabled: true,
+                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+              }
+          }
+      },
+      
+      series: [{
+          name: 'Request',
+          colorByPoint: true,
+          data:[]
+        }]
+  };
+
+
+  public options1: any = {
     chart: {
       type: 'column'
   },
@@ -101,90 +138,85 @@ countP = 0;
 
   }
 
-  public options1: any = {
+  
+    public options2: any = {   
+      data: {
+        table: 'datatable'
+    },
     chart: {
-            // plotBackgroundColor: null,
-            // plotBorderWidth: null,
-            // plotShadow: false,
-            type: 'pie'
-        },
+        type: 'column'
+    },
+    title: {
+        text: 'Data extracted from a HTML table in the page'
+    },
+    yAxis: {
+        allowDecimals: false,
         title: {
-            text: 'Total request made, 2020'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
-            }
-        },
-        
-        series: [{
-            name: 'Request',
-            colorByPoint: true,
-            data:[{
-                name: 'Plumbing',
-                y: this.countP,
-                sliced: true,
-                selected: true
-              }, {
-                name: 'ICT',
-                y: 2
-              }, {
-                name: 'Electricity',
-                y: this.countE
-              }]
-          }]
-    };
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+
+}
+
+public option: any = {   
+  data: {
+    table: 'datatable'
+},
+chart: {
+    type: 'line'
+},
 
 
+yAxis: {
+  title: {
+      text: 'Number of Employees'
+  }
+},
 
-// [{
-//   name: 'Plumbing',
-//   y: this.countP,
-//   sliced: true,
-//   selected: true
-// }, {
-//   name: 'ICT',
-//   y: 2
-// }, {
-//   name: 'Electricity',
-//   y: this.countE
-// }]
-//     public options2: any = {   
-//       data: {
-//         table: 'datatable'
-//     },
-//     chart: {
-//         type: 'column'
-//     },
-//     title: {
-//         text: 'Data extracted from a HTML table in the page'
-//     },
-//     yAxis: {
-//         allowDecimals: false,
-//         title: {
-//             text: 'Units'
-//         }
-//     },
-//     tooltip: {
-//         formatter: function () {
-//             return '<b>' + this.series.name + '</b><br/>' +
-//                 this.point.y + ' ' + this.point.name.toLowerCase();
-//         }
-//     }
+xAxis: {
+  accessibility: {
+      rangeDescription: 'Range: 2010 to 2017'
+  }
+},
 
-// }
+plotOptions: {
+  series: {
+      label: {
+          connectorAllowed: false
+      },
+      pointStart: 2010
+  }
+},
 
-
-  constructor(private afs: AngularFirestore) { }
-
+series: [{
+  name: 'Installation',
+  data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+}, ],
+responsive: {
+  rules: [{
+      condition: {
+          maxWidth: 500
+      },
+      chartOptions: {
+          legend: {
+              layout: 'horizontal',
+              align: 'center',
+              verticalAlign: 'bottom'
+          }
+      }
+  }]
+}
+}
+  constructor(private afs: AngularFirestore, private route : Router) { }
+ pass() {
+  this.route.navigateByUrl('main-nav/widget-pie')
+ }
   ngOnInit() {
 
     this.scoreArr.push([5,10,21,30,50,80])
@@ -233,12 +265,20 @@ countP = 0;
                 console.log("total request for ICT : " + this.countI)
             });
     console.log(this.ict)
+
+    setTimeout(() => {
+      this.options.series[0].data = [{y: this.countP, name: "Plumbing"},{y: this.countE, name: "Electric"},{y: this.countI, name: "ICT"}];
+      this.wait = true;
+    }, 2000);
   
+            
     // this.options1.series[0] = this.countP;
     // this.options1.series[1] = this.countE;
-    Highcharts.chart('container', this.options);
+    // Highcharts.chart('container', this.options);
     Highcharts.chart('container1', this.options1);
-    // Highcharts.chart('container2', this.options2);
-  }
+    Highcharts.chart('container2', this.option);
 
+    // Highcharts.chart()
+          }
+ 
 }

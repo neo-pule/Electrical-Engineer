@@ -64,7 +64,9 @@ import { RequestAppComponent } from './components/request-app/request-app.compon
 import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { WidgetPieComponent } from './widgets/widget-pie/widget-pie.component';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 // import { HomeComponent } from '../app/components/home/home.component';
 const firebaseConfig = {
     apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
@@ -96,7 +98,8 @@ RequestMComponent,
 RequestAppComponent,
 RequestMDetailComponent,
 OutputGraphComponent,
-ProfileComponent
+ProfileComponent,
+WidgetPieComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +109,8 @@ ProfileComponent
     AngularFireStorageModule,
     ReactiveFormsModule,
     // FormGroup,
+    // FlexLayoutModule,
+    HighchartsChartModule,
     AngularFireModule.initializeApp(firebaseConfig),
     HttpClientModule,
     AngularFireModule,

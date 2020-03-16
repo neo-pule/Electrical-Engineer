@@ -29,7 +29,10 @@ logout() {
   this.auth.signOut();
 }
 
-
+open(){
+  // sidenav.toggle
+  this.sideBarOpen = true;
+}
 push(){
   this.route.navigateByUrl('main-nav/listService');
 }

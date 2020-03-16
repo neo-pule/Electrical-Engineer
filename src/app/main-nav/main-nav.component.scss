@@ -30,8 +30,12 @@
     position: relative;
     top: 22vh;
     color: white;
+    // 
 }
-
+.profile{
+    position: relative;
+    top: 0px;
+}
 .example-container {
     display: flex;
     flex-direction: column;
@@ -40,18 +44,33 @@
     bottom: 0;
     left: 0;
     right: 0;
-}
 
+}
+#head{
+    text-align: center;
+}
 .list {
+    width: 20%;
     overflow-x: hidden;
     overflow-y: hidden !important;
     background: linear-gradient(rgba(rgb(240, 23, 23), .75), rgba(rgba(238, 12, 12, 0.692), .85)), url("/assets/bg.jpg") no-repeat;
 }
-.img{
-    top: 2px;
+// .img{
+//     top: 2px;
+//     position: absolute;
+//     right: 2%;
+//     height: 60px;
+//     width: 65px;
+//     border-radius: 50px 50px 50px 50px;
+// }
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-content: center;
+}
+.icon{
     position: absolute;
-    right: 2%;
-    height: 60px;
-    width: 65px;
-    border-radius: 50px 50px 50px 50px;
+    right: 5%;
 }

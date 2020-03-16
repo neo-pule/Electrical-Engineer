@@ -26,3 +26,14 @@
     width: 48%;
     height: 40%;
 }
+.stats-cards {
+    display: flex;
+    
+}
+mat-card{
+    position: relative;
+    width: 300px;
+    margin-right: 8px;
+   left: 10%;
+   height: 200px;
+} 
