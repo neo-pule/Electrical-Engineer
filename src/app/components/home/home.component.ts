@@ -23,7 +23,7 @@ export class HomeComponent  {
   mainImage;
   imgURL;
   downloadU;
-
+flag:string;
   name ;
   description;
   cost;
@@ -102,9 +102,22 @@ export class HomeComponent  {
           this.User.description = this.description ;
           this.User.cost = this.cost ;
            this.User.photoURL = this.photoURL ;
-           this.skill.updateService(this.User);
+//            this.skill.updateService(this.User);
+// this.dialogRef.close();
+if(this.flag == 'electrical') {
+  console.log( '***electrical***')
+  this.skill.updateService(this.User); 
+}
+if(this.flag == 'plumbing') {
+  console.log( '***plumbing***')
+  this.skill.updateService2(this.User);
+}
+if(this.flag == 'ict') {
+  console.log( '***ict***')
+  this.skill.updateService1(this.User);
+}
 this.dialogRef.close();
-  
+
 
           } else {
             
@@ -124,6 +137,7 @@ this.dialogRef.close();
     
   
 test1(){
+  
   this.User.id  = this.storeUser.getUser().id;
   this.User.name = this.name ;
   this.User.description = this.description ;
@@ -131,7 +145,18 @@ test1(){
    this.User.photoURL = this.photoURL ;
    
 console.log(this.User)
-this.skill.updateService(this.User);
+if(this.flag == '***electrical***') {
+  console.log( 'electrical')
+  // this.skill.updateService(this.User);
+}
+if(this.flag == 'plumbing') {
+  console.log( '***plumbing***')
+  this.skill.updateService2(this.User);
+}
+if(this.flag == 'ict') {
+  console.log( '***ict***')
+  this.skill.updateService1(this.User);
+}
 this.dialogRef.close();
 
 }
@@ -140,6 +165,9 @@ this.dialogRef.close();
     this.description = this.storeUser.getUser().description;
     this.cost = this.storeUser.getUser().cost;
     this.photoURL = this.storeUser.getUser().photoURL;
+    this.flag = this.data.name
+    // console.log(this.flag);
+    
   }
 
 }

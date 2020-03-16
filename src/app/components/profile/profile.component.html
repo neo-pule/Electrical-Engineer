@@ -1,0 +1,38 @@
+<div class="title" style="position: absolute;left:42%;">
+    <h1>User Profile</h1>
+</div>
+
+<div class="container">
+    <div class="button">
+        <img [src]="imgUrl" alt="avatar" (click)="file.click()" height="140" width="95">
+        <input #file type="file" style="display: none;" (change)="uploadFile(file.files)" accept='image/*' />
+        <!--  <input id="file-input1" type="file" accept="image/*" (change)="uploadFile(file.files)" /> -->
+
+    </div>
+
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Phone no.</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+
+</div>
+<div class="buttons">
+    <button mat-button (click)="updateAdmin()" class="btn">update</button>&nbsp;&nbsp;
+    <button mat-button (click)="logout()" class="btn">LogOut</button>
+</div>

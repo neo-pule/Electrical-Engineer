@@ -15,6 +15,7 @@ import { RequestMComponent } from './components/request-m/request-m.component';
 import { RequestAppComponent } from './components/request-app/request-app.component';
 import { RequestMDetailComponent } from './components/request-m-detail/request-m-detail.component';
 import { OutputGraphComponent } from './charts/output-graph/output-graph.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path : 'request-m', component : RequestMComponent},
     {path : 'request-m-detail', component : RequestMDetailComponent},
     {path : 'request-details', component : RequestDetailsComponent},
+    {path : 'profile', component : ProfileComponent}
   ]},
   {path : '', component:LoginComponent, pathMatch: 'full'},
 

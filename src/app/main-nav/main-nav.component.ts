@@ -21,21 +21,22 @@ export class MainNavComponent implements OnDestroy{
     { name: 'Registered Students', page: 'posts'}
   ]
   pagesToDisplay = [];
-constructor(private route : Router, public mainService: AuthGuardService) {
+constructor(private route : Router,private auth : AuthGuardService) {
 
 }
+
+logout() {
+  this.auth.signOut();
+}
+
 
 push(){
   this.route.navigateByUrl('main-nav/listService');
 }
 
-logout()
-{
-  this.mainService.sign_Out();
-  // this.route.
+profile() {
+  this.route.navigateByUrl('main-nav/profile');
 }
-
-
 
 ngOnDestroy(): void {
 

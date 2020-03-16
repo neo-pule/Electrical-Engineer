@@ -89,8 +89,16 @@ updateService(item){
 }
 
 updateService1(item){
-  console.log(item.id)
+  console.log(item)
   this.itemDoc = this.dog.collection('serviceICT/').doc(item.id);
+  this.itemDoc.update(item).then(() =>{
+    alert(item.name +' is updated successful')
+  });
+  console.log("service updated succesful");
+}
+updateService2(item){
+  console.log(item.id)
+  this.itemDoc = this.dog.collection('servicesPlumbing/').doc(item.id);
   this.itemDoc.update(item).then(() =>{
     alert(item.name +' is updated successful')
   });

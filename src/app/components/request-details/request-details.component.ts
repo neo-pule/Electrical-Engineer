@@ -24,9 +24,29 @@ id : string;
     this.sccskills.viewDetailRequest(this.key).subscribe((data) =>{
       this.array =data;
       // this.id = this.array.uid;
-      console.log(this.id);
+      console.log(this.array);
     })
 
+  
+      // this.sccskills.viewDetailRequest(this.key).subscribe((data) =>{
+      //   this.array =data;
+      //   this._invoiceService.storeUserObj(data);
+      //   console.log(this.array)
+      //   this.arrayOfictObj= this.array.ictObj;
+        
+      //   console.log(this.arrayOfictObj);
+      //   this.arrayOfeleObj= this.array.eleObj;
+        
+      //   console.log(this.arrayOfeleObj);
+      //   // for(let array of this.array.ictObj) {
+          
+          
+      //   // }
+      //   // for(let array of this.array.eleObj) {
+      //   //   console.log(array)
+      //   // }
+  
+      // })
   }
   next(){
     console.log('test');
