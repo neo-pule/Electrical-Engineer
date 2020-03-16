@@ -38,9 +38,7 @@ const routes: Routes = [
     {path : 'profile', component : ProfileComponent},
     {path : 'widget-pie', component : WidgetPieComponent}
   ]},
-  
- {path : 'login', component:LoginComponent},
-
+  {path : '', component:LoginComponent, pathMatch: 'full'},
 
 ];
 
